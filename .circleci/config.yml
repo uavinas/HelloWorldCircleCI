@@ -12,9 +12,6 @@ jobs:
           name: install missing gems for fastlane 
           command: bundle install
       - run:
-          name: Fastlane
-          command: bundle exec fastlane $FASTLANE_LANE
-      - run:
           name: build and test run 
           command: fastlane scan
           environment: 
