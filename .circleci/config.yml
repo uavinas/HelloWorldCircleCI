@@ -9,6 +9,9 @@ jobs:
       - checkout
       - run: gem install bundler:1.17.2
       - run:
+          name: install missing gems for fastlane 
+          command: bundle install
+      - run:
           name: Fastlane
           command: bundle exec fastlane $FASTLANE_LANE
       - run:
