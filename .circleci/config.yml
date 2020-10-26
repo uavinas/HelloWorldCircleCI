@@ -5,19 +5,23 @@ jobs:
       xcode: 12.1.0
     environment:
       FL_OUTPUT_DIR: output
-      FASTLANE_LANE: test
     steps:
       - checkout
       - run: bundle install
       - run:
           name: Fastlane
           command: bundle exec fastlane $FASTLANE_LANE
+      - run:
+          name: build and test run 
+          command: fastlane scan
+          environment: 
+           SCAN_DEVICE: iphone 8
       - store_artifacts:
           path: output
       - store_test_results:
           path: output/scan
           
 workflows:
-  build-test-adhoc:
+  build-and-test:
     jobs:
       - build-and-test
