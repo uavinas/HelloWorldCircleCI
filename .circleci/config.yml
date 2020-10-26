@@ -14,8 +14,6 @@ jobs:
       - run:
           name: build and test run 
           command: fastlane scan
-          environment: 
-           SCAN_DEVICE: iphone 8
       - store_artifacts:
           path: output
       - store_test_results:
